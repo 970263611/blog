@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/logo.ico"/>
+    <title>文章详情</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <link rel="stylesheet" type="text/css" href="css/alert.css">
+</head>
+<body>
+<div class="alert"></div>
+<div id="background" style="position: fixed;top: 0;"></div>
+<div id="article" class="content"></div>
+<div class="content">
+    <div class="list">
+        <div style="padding-top: 5px;z-index: 1;position: relative;">
+            <h3 style="padding-bottom: 10px;">评论啦~</h3>
+            <textarea rows="1" cols="30" name="text" id="textarea" class="text" placeholder="嘿~ 大神，别默默的看了，快来点评一下吧"
+                      style="width: 100%;"></textarea>
+            <div id="pl" style="display: none;">
+                <button type="button" class="btn btn-info" onclick="pl()">提交评论</button>
+            </div>
+        </div>
+        <div data-v-357a65ed="" class="box">
+            <div class="title">
+                <h3>评论列表</h3>
+                <div class="num"></div>
+            </div>
+            <div class="comment-div">
+                <div>
+                    <ul class="comment-ul"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <span style="color: #a5a4a4;font: 14px '微软雅黑', Arial, Helvetica, sans-serif;line-height:0px;">Design by 大花博客 <a
+            href="https://beian.miit.gov.cn/">黑ICP备18000243号-2</a></span>
+</footer>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/articles.js"></script>
+<script type="text/javascript" src="js/three.min.js"></script>
+<script type="text/javascript" src="js/background.js"></script>
+<script>
+    const textarea = document.getElementById("textarea")
+    textarea.onfocus = function () {
+        textarea.rows = 5
+        $("#pl").show()
+    }
+    textarea.onblur = function () {
+        const date = $("textarea").val().trim()
+        if (date == null || date == undefined || date == "") {
+            textarea.rows = 1
+            $("#pl").hide()
+        }
+    }
+    backgroundInit()
+    getArticle()
+    getComment()
+</script>
+</body>
+</html>
