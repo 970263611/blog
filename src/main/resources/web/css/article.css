@@ -180,6 +180,10 @@ button {
     }
 
     .content {
-        width: 80%;
+        width: 100%;
+    }
+
+    .text {
+        height: 68px;
     }
 }
